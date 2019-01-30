@@ -5,6 +5,7 @@ import (
 )
 
 func main() {
-	log.LogTo("text", "stdout", "debug")
-	log.Info("DocsDocs Crypto Doc")
+	log.LogTo("json", "stdout", "debug")
+	logTest := log.NewDocsLogger()
+	logTest.Debug("DocsDocs Crypt Debug Log")
 }
