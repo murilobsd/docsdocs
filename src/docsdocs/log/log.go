@@ -8,8 +8,8 @@ import (
 
 var log = logrus.New()
 
-// LogTo sets the log settings
-func LogTo(format, out, levelName string) {
+// Settings sets the log settings
+func Settings(format, out, levelName string) {
 	// log format
 	switch format {
 	case "json":
@@ -53,9 +53,9 @@ func LogTo(format, out, levelName string) {
 // Logger interface
 type Logger interface {
 	Debug(...interface{})
-	// Info(string, ...interface{})
-	// Warn(string, ...interface{}) error
-	// Error(string, ...interface{}) error
+	Info(...interface{})
+	Warn(...interface{})
+	Error(...interface{})
 }
 
 // DocsLogger struct
@@ -64,11 +64,29 @@ type DocsLogger struct {
 }
 
 // NewDocsLogger create new logger
-func NewDocsLogger() Logger {
-	return &DocsLogger{log}
+func NewDocsLogger(prefixes ...string) Logger {
+	logger := &DocsLogger{Logger: log}
+
+	return logger
+
 }
 
 // Debug logger
 func (d *DocsLogger) Debug(args ...interface{}) {
 	d.Logger.Debug(args...)
+}
+
+// Info logger
+func (d *DocsLogger) Info(args ...interface{}) {
+	d.Logger.Info(args...)
+}
+
+// Warn logger
+func (d *DocsLogger) Warn(args ...interface{}) {
+	d.Logger.Warn(args...)
+}
+
+// Error logger
+func (d *DocsLogger) Error(args ...interface{}) {
+	d.Logger.Error(args...)
 }
