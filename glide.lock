@@ -1,6 +1,57 @@
 hash: 75e273130a5e786be56d0f5db55b46a2f7b16b7d69961030dc8432a523a96a84
-updated: 2019-01-29T20:15:35.120067926-02:00
+updated: 2019-01-30T00:47:56.645661137-02:00
 imports:
+- name: github.com/konsorten/go-windows-terminal-sequences
+  version: 5c8c8bd35d3832f5d134ae1e1e375b69a4d25242
 - name: github.com/sirupsen/logrus
   version: e1e72e9de974bd926e5c56f83753fba2df402ce5
+- name: golang.org/x/crypto
+  version: ccddf3741a0cfcee0a62d34c18c2c5417a3761af
+  subpackages:
+  - acme
+  - acme/autocert
+  - acme/autocert/internal/acmetest
+  - blake2b
+  - blowfish
+  - cast5
+  - cryptobyte
+  - cryptobyte/asn1
+  - curve25519
+  - ed25519
+  - ed25519/internal/edwards25519
+  - hkdf
+  - internal/chacha20
+  - internal/subtle
+  - md4
+  - nacl/auth
+  - nacl/box
+  - nacl/secretbox
+  - openpgp
+  - openpgp/armor
+  - openpgp/elgamal
+  - openpgp/errors
+  - openpgp/packet
+  - openpgp/s2k
+  - pbkdf2
+  - pkcs12/internal/rc2
+  - poly1305
+  - ripemd160
+  - salsa20/salsa
+  - scrypt
+  - ssh
+  - ssh/agent
+  - ssh/terminal
+  - ssh/testdata
+- name: golang.org/x/sys
+  version: 302c3dd5f1cc82baae8e44d9c3178e89b6e2b345
+  subpackages:
+  - cpu
+  - plan9
+  - unix
+  - windows
+  - windows/registry
+  - windows/svc
+  - windows/svc/debug
+  - windows/svc/eventlog
+  - windows/svc/mgr
 testImports: []
