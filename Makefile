@@ -1,4 +1,4 @@
-.PHONY: default client deps clean fmt glide
+.PHONY: default client deps clean fmt lint glide
 
 export GOPATH:=$(shell pwd)
 export GOBIN=$(shell pwd)/bin
@@ -23,6 +23,11 @@ fmt:
 	@go fmt docsdocs/...
 	@echo ""
 
+lint:
+	@echo "--> lint "
+	@golint src/docsdocs/...
+	@echo ""
+
 clean:
 	@echo "--> formating"
 	go clean -i -r docsdocs/...
@@ -33,5 +38,11 @@ glide:
 		echo "--> installing glide"; \
 		curl https://glide.sh/get | sh; \
 	fi
+
+test:
+	@go test -v -race $(shell go list ./src/docsdocs/...)
+
+coverage:
+	@goverage -coverprofile=coverage.txt docsdocs/...
 
 all: fmt client
