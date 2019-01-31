@@ -1,8 +1,10 @@
-.PHONY: default client deps clean fmt glide
+.PHONY: default client deps clean fmt lint glide
 
 export GOPATH:=$(shell pwd)
 export GOBIN=$(shell pwd)/bin
 
+PLATFORMS := windows linux darwin
+PKGS := $(shell go list ./src/docsdocs...)
 SHELL := /bin/bash
 
 default: all
@@ -10,12 +12,17 @@ default: all
 deps:
 	@echo "--> intalling deps"
 	@glide install
-	$(shell ln -sr vendor/* src/)
+	# $(shell ln -sr vendor/* src/)
 	@echo ""
 
 client:
 	@echo "--> intall client"
 	@go install docsdocs/main/docs
+	@echo ""
+
+lint:
+	@echo "--> linting"
+	@golint $(PKGS)
 	@echo ""
 
 fmt:
@@ -34,4 +41,4 @@ glide:
 		curl https://glide.sh/get | sh; \
 	fi
 
-all: fmt client
+all: fmt lint client
