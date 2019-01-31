@@ -12,7 +12,7 @@
     <property name="website">https://docsdocs.com.br</property>
     <property name="website_label" translatable="yes">Docs Docs WebSite</property>
     <property name="authors">Murilo Ijanc</property>
-    <property name="logo">../../../../../Imagens/logo_docsdocs.png</property>
+    <property name="logo">../images/logo.png</property>
     <property name="license_type">bsd</property>
     <child>
       <placeholder/>
