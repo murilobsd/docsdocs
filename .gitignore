@@ -71,3 +71,4 @@ vendor/
 
 src/github.com
 src/golang.org
+coverage.txt
