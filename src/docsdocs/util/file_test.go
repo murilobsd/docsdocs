@@ -6,13 +6,23 @@ import (
 	"testing"
 )
 
-func setupTestCase(t *testing.T) func(t *testing.T) {
-	t.Log("setup test case")
-	return func(t *testing.T) {
-		t.Log("tear test case")
+func TestReadFile(t *testing.T) {
+	filename := "notexist"
+	contents, err := ReadFile(filename)
+	if err == nil {
+		t.Fatalf("Readfile %s: error expected, none found", filename)
 	}
-}
+	filename = "file_test.go"
+	contents, err = ReadFile(filename)
+	if err != nil {
+		t.Fatalf("ReadFile %s: %v", filename, err)
+	}
+	dir, _ := os.Stat(filename)
+	if dir.Size() != int64(len(contents)) {
+		t.Errorf("Stat %q: size %d want %d", filename, dir.Size(), size)
+	}
 
+}
 func TestSaveFile(t *testing.T) {
 	f, err := ioutil.TempFile("", "docsfile")
 	if err != nil {
