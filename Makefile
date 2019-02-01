@@ -40,9 +40,9 @@ install_glide:
 	fi
 
 test:
-	@go test -v -race $(shell go list ./src/docsdocs/...)
+	@go test -v $(shell go list docsdocs/... | grep -v docsdocs/client/views/gui)
 
 coverage:
-	@goverage -coverprofile=coverage.txt docsdocs/...
+	@goverage -v -coverprofile=coverage.txt $(shell go list docsdocs/... | grep -v docsdocs/client/views/gui)
 
 all: fmt client

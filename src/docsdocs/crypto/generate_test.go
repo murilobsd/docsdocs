@@ -2,7 +2,6 @@ package crypto
 
 import (
 	"bytes"
-	"fmt"
 	"testing"
 )
 
@@ -74,5 +73,4 @@ func TestExportPublic(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	fmt.Println(buf)
 }
