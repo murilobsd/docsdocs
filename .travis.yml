@@ -22,12 +22,14 @@ before_script:
 
 install: |
   export GOPATH=$HOME/gopath
-  mkdir -p $HOME/gopath/src/docsdocs
-  rsync -az ${TRAVIS_BUILD_DIR}/ $HOME/gopath/src/docsdocs/
-  export TRAVIS_BUILD_DIR=$HOME/gopath/src/docsdocs
-  cd $HOME/gopath/src/docsdocs
+  mkdir -p $GOPATH/bin
+  mkdir -p $GOPATH/pkg
+  mkdir -p $GOPATH/src/docsdocs
+  rsync -az ${TRAVIS_BUILD_DIR}/ $GOPATH/src/docsdocs/
+  export TRAVIS_BUILD_DIR=$GOPATH/src/docsdocs
   go get github.com/haya14busa/goverage
   go get github.com/golang/lint/golint
+  cd $HOME/gopath/src/docsdocs
   make glide
 
 script:
