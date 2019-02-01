@@ -21,15 +21,17 @@ before_script:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libgtk-3-dev libcairo2-dev libglib2.0-dev ; fi
 
 install: |
-  export GOPATH=$HOME/gopath
+  mkdir -p $HOME/docsdocs
+  rsync -az ${TRAVIS_BUILD_DIR}/ $HOME/docsdocs/
+  export GOPATH=$HOME/docsdocs
   mkdir -p $GOPATH/bin
   mkdir -p $GOPATH/pkg
-  mkdir -p $GOPATH/src/docsdocs
-  rsync -az ${TRAVIS_BUILD_DIR}/ $GOPATH/src/docsdocs/
-  export TRAVIS_BUILD_DIR=$GOPATH/src/docsdocs
+  export GOBIN=$GOPATH/bin
+  export TRAVIS_BUILD_DIR=$GOPATH
+  export PATH=$PATH:$GOBIN
   go get github.com/haya14busa/goverage
   go get github.com/golang/lint/golint
-  cd $HOME/gopath/src/docsdocs
+  cd $GOPATH
   make glide
 
 script:
