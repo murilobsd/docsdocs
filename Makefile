@@ -30,11 +30,6 @@ fmt:
 	@go fmt docsdocs/...
 	@echo ""
 
-lint:
-	@echo "--> lint "
-	@golint src/docsdocs/...
-	@echo ""
-
 clean:
 	@echo "--> formating"
 	go clean -i -r docsdocs/...
