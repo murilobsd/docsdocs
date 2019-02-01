@@ -1,0 +1,52 @@
+sudo: true
+language: go
+
+os:
+  - linux
+
+go:
+  - 1.11.x
+  - tip
+
+matrix:
+  allow_failures:
+    - go: tip
+  fast_finish: true
+
+before_script:
+  - echo $TRAVIS
+  - echo $TRAVIS_COMMIT
+  - echo $TRAVIS_OS_NAME
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get -qq update           ; fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libgtk-3-dev libcairo2-dev libglib2.0-dev ; fi
+
+install: |
+  mkdir -p $HOME/docsdocs
+  rsync -az ${TRAVIS_BUILD_DIR}/ $HOME/docsdocs/
+  export GOPATH=$HOME/docsdocs
+  mkdir -p $GOPATH/bin
+  mkdir -p $GOPATH/pkg
+  export GOBIN=$GOPATH/bin
+  export TRAVIS_BUILD_DIR=$GOPATH
+  export PATH=$PATH:$GOBIN
+  go get github.com/haya14busa/goverage
+  go get github.com/golang/lint/golint
+  cd $GOPATH
+  make install_glide
+  make deps
+
+script:
+  - make test
+  - make coverage
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
+    on_start: never
+env:
+  global:
+    secure: 0JHc6TVd1sjVh5bW1lLZScAl5b7HTAAtZodAmyPhwnChrcpPy4C/SS7ytJh0WY8drlU2ROuADTEoxIM33bVnFLm8WVBgPfcD7Eihu2OPPUvnWcgvkPizgmTT/WV87QxhO5ysjNLesLkZoOpFVWuJYOBqBE6bnwTtf9RVXA64w0dggjAUwJZ7Kgp8Ks1XgfH5/W4XV8XWoR+6IV1jBuprLFWzCw46rmZAfHYKnYIijOrgYhIqlNENGwWXoygBXEZ/unVkjv6CwRmeK99KlF1JEePN/CPokZezRI6nyCIeDL91/UQVPDYrx9Orkp5AHQ02/x4F24ktyH7BNRg+JUQhRDRtH/LJ37yARZYs+rfr54fbPKPAhaivCI6ggzLdwUKT4dgRizfrLr11hNeGE/h1NF+SLIlDUGvQDA8uhVWj3Sz4RfkT2Fnq+IOkvK4OMH2FSArfez43j1Q6PKKmfGU97VYTQTfmPSQ9BGIDvBM+De0Ky+hdzF3Yai03NoJNMhRPTAwdKAqBdfIdObNODWAkQPCfMPVukqAkmilYZ04wrSsAKB8xO1gwIW+j+orCthq/renkkF9dRvvm7k7eVKAoQZDefglNruTJwPeSUKnUa85jbQVUCe8lhvlQC3OgwU8Ef5NYZow9Ba+TgvTiLg7zA0/pMltsxrxfl94azsv18A8=

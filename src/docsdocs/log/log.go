@@ -64,7 +64,7 @@ type DocsLogger struct {
 }
 
 // NewDocsLogger create new logger
-func NewDocsLogger(prefixes ...string) Logger {
+func NewDocsLogger() Logger {
 	logger := &DocsLogger{Logger: log}
 
 	return logger

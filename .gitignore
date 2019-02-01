@@ -71,3 +71,9 @@ vendor/
 
 src/github.com
 src/golang.org
+src/cloud.google.com
+src/gopkg.in
+src/google.golang.org
+src/golang.org
+src/go.opencensus.io
+coverage.txt

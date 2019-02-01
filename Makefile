@@ -12,7 +12,11 @@ default: all
 deps:
 	@echo "--> intalling deps"
 	@glide install
+<<<<<<< HEAD
 	# $(shell ln -sr vendor/* src/)
+=======
+	@cp -R vendor/* src/
+>>>>>>> dev
 	@echo ""
 
 client:
@@ -30,15 +34,26 @@ fmt:
 	@go fmt docsdocs/...
 	@echo ""
 
+lint:
+	@echo "--> lint "
+	@golint src/docsdocs/...
+	@echo ""
+
 clean:
 	@echo "--> formating"
 	go clean -i -r docsdocs/...
 	@echo ""
 
-glide:
+install_glide:
 	@command -v glide >/dev/null ; if [ $$? -ne 0 ]; then \
 		echo "--> installing glide"; \
 		curl https://glide.sh/get | sh; \
 	fi
+
+test:
+	@go test -v $(shell go list docsdocs/... | grep -v docsdocs/client/views/gui)
+
+coverage:
+	@goverage -v -coverprofile=coverage.txt $(shell go list docsdocs/... | grep -v docsdocs/client/views/gui)
 
 all: fmt lint client
