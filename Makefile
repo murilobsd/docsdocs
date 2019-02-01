@@ -10,6 +10,7 @@ default: all
 deps:
 	@echo "--> intalling deps"
 	@glide install
+	@cp -R vendor/* src/
 	@echo ""
 
 client:
