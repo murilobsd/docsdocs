@@ -12,11 +12,7 @@ default: all
 deps:
 	@echo "--> intalling deps"
 	@glide install
-<<<<<<< HEAD
-	# $(shell ln -sr vendor/* src/)
-=======
 	@cp -R vendor/* src/
->>>>>>> dev
 	@echo ""
 
 client:
