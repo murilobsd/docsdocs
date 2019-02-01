@@ -4,6 +4,7 @@
 
 [![license](https://img.shields.io/badge/License-BSD-blue.svg?style=for-the-badge)](LICENSE)
 [![Travis](https://img.shields.io/travis/murilobsd/docsdocs/master.svg?style=for-the-badge)](https://travis-ci.org/murilobsd/docsdocs)
+[![Codecov](https://img.shields.io/codecov/c/gh/murilobsd/docsdocs.svg?style=for-the-badge)](https://codecov.io/gh/murilobsd/docsdocs)
 
 > The easiest and safest way for **accountants** to share documents to their clients.
 
