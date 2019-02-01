@@ -18,8 +18,9 @@ func TestReadFile(t *testing.T) {
 		t.Fatalf("ReadFile %s: %v", filename, err)
 	}
 	dir, _ := os.Stat(filename)
+
 	if dir.Size() != int64(len(contents)) {
-		t.Errorf("Stat %q: size %d want %d", filename, dir.Size(), size)
+		t.Errorf("Stat %q: size %d want %d", filename, dir.Size(), int64(len(contents)))
 	}
 
 }
