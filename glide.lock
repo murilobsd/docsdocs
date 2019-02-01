@@ -1,10 +1,114 @@
-hash: 75e273130a5e786be56d0f5db55b46a2f7b16b7d69961030dc8432a523a96a84
-updated: 2019-01-30T00:47:56.645661137-02:00
+hash: d089037153d53af1ecf4b14d398f28a95d30bc7d2465f9745d943d37d886c7d9
+updated: 2019-01-31T22:59:46.522518942-02:00
 imports:
+- name: cloud.google.com/go
+  version: b2f67320b4ef8ea4a3b762e54394254d11fa2844
+  subpackages:
+  - compute/metadata
+  - datastore
+  - iam
+  - internal
+  - internal/fields
+  - internal/optional
+  - internal/trace
+  - internal/version
+  - storage
+- name: github.com/cosiner/argv
+  version: 10cf91c9a4f7fdeda06a012a98b5c902ef443666
+- name: github.com/cpuguy83/go-md2man
+  version: 691ee98543af2f262f35fbb54bdd42f00b9b9cc5
+  subpackages:
+  - md2man
+- name: github.com/davecgh/go-spew
+  version: d8f796af33cc11cb798c1aaeb27a4ebc5099927d
+  subpackages:
+  - spew
+- name: github.com/golang/protobuf
+  version: 347cf4a86c1cb8d262994d8ef5924d4576c5b331
+  subpackages:
+  - proto
+  - protoc-gen-go/descriptor
+  - ptypes
+  - ptypes/any
+  - ptypes/duration
+  - ptypes/struct
+  - ptypes/timestamp
+  - ptypes/wrappers
+- name: github.com/gomodule/redigo
+  version: e1f5b3308d603a3c4558b5d055bd45b9432b7cde
+  subpackages:
+  - redis
+- name: github.com/googleapis/gax-go
+  version: ddfab93c3faef4935403ac75a7c11f0e731dc181
+  subpackages:
+  - v2
+- name: github.com/gotk3/gotk3
+  version: 83307073d5a2ef29b1bd1c1d49eefa39c53a41fe
+  subpackages:
+  - gtk
+- name: github.com/hashicorp/golang-lru
+  version: 20f1fb78b0740ba8c3cb143a61e86ba5c8669768
+  subpackages:
+  - simplelru
+- name: github.com/inconshreveable/mousetrap
+  version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
 - name: github.com/konsorten/go-windows-terminal-sequences
   version: 5c8c8bd35d3832f5d134ae1e1e375b69a4d25242
+- name: github.com/mattn/go-colorable
+  version: efa589957cd060542a26d2dd7832fd6a6c6c3ade
+- name: github.com/mattn/go-isatty
+  version: 3fb116b820352b7f0c281308a4d6250c22d94e27
+- name: github.com/mattn/go-runewidth
+  version: 703b5e6b11ae25aeb2af9ebb5d5fdf8fa2575211
+- name: github.com/peterh/liner
+  version: a2c9a5303de792c7581a3b80a8f10258319bb20e
+- name: github.com/pmezard/go-difflib
+  version: 5d4384ee4fb2527b0a1256a821ebfc92f91efefc
+  subpackages:
+  - difflib
+- name: github.com/russross/blackfriday
+  version: a477dd1646916742841ed20379f941cfa6c5bb6f
 - name: github.com/sirupsen/logrus
   version: e1e72e9de974bd926e5c56f83753fba2df402ce5
+  subpackages:
+  - hooks/syslog
+  - internal/testutils
+- name: github.com/spf13/cobra
+  version: 7547e83b2d85fd1893c7d76916f67689d761fecb
+  subpackages:
+  - doc
+- name: github.com/spf13/pflag
+  version: 24fa6976df40757dce6aea913e7b81ade90530e1
+- name: github.com/stretchr/testify
+  version: 363ebb24d041ccea8068222281c2e963e997b9dc
+  subpackages:
+  - assert
+  - require
+- name: go.opencensus.io
+  version: 3cbb6ce43853260092b2858e37d5b692b57b432b
+  subpackages:
+  - exemplar
+  - internal
+  - internal/tagencoding
+  - plugin/ocgrpc
+  - plugin/ochttp
+  - plugin/ochttp/propagation/b3
+  - stats
+  - stats/internal
+  - stats/view
+  - tag
+  - trace
+  - trace/internal
+  - trace/propagation
+  - trace/tracestate
+- name: golang.org/x/arch
+  version: 5a4828bb704534b8a2fa09c791c67d0fb372f472
+  subpackages:
+  - x86/x86asm
+- name: golang.org/x/build
+  version: cfd41133b82bd426dde32d289b64dc7c68676e64
+  subpackages:
+  - autocertcache
 - name: golang.org/x/crypto
   version: ccddf3741a0cfcee0a62d34c18c2c5417a3761af
   subpackages:
@@ -42,6 +146,27 @@ imports:
   - ssh/agent
   - ssh/terminal
   - ssh/testdata
+- name: golang.org/x/net
+  version: d26f9f9a57f3fab6a695bec0d84433c2c50f8bbf
+  subpackages:
+  - context
+  - context/ctxhttp
+  - html
+  - html/atom
+  - http/httpguts
+  - http2
+  - http2/hpack
+  - idna
+  - internal/timeseries
+  - trace
+  - websocket
+- name: golang.org/x/oauth2
+  version: 99b60b757ec124ebb7d6b7e97f153b19c10ce163
+  subpackages:
+  - google
+  - internal
+  - jws
+  - jwt
 - name: golang.org/x/sys
   version: 302c3dd5f1cc82baae8e44d9c3178e89b6e2b345
   subpackages:
@@ -54,4 +179,89 @@ imports:
   - windows/svc/debug
   - windows/svc/eventlog
   - windows/svc/mgr
-testImports: []
+- name: golang.org/x/text
+  version: e6919f6577db79269a6443b9dc46d18f2238fb5d
+  subpackages:
+  - secure/bidirule
+  - transform
+  - unicode/bidi
+  - unicode/norm
+- name: google.golang.org/api
+  version: b7b8eee3e7a942b68d7513082b6793866a911b63
+  subpackages:
+  - gensupport
+  - googleapi
+  - googleapi/internal/uritemplates
+  - googleapi/transport
+  - internal
+  - iterator
+  - option
+  - storage/v1
+  - transport/grpc
+  - transport/http
+  - transport/http/internal/propagation
+- name: google.golang.org/appengine
+  version: e9657d882bb81064595ca3b56cbe2546bbabf7b1
+  subpackages:
+  - internal
+  - internal/app_identity
+  - internal/base
+  - internal/datastore
+  - internal/log
+  - internal/modules
+  - internal/remote_api
+  - internal/socket
+  - internal/urlfetch
+  - internal/user
+  - log
+  - socket
+  - urlfetch
+  - user
+- name: google.golang.org/genproto
+  version: 8ac453e89fca495c0d17f98932642f392e2a11f3
+  subpackages:
+  - googleapis/api/annotations
+  - googleapis/datastore/v1
+  - googleapis/iam/v1
+  - googleapis/rpc/code
+  - googleapis/rpc/status
+  - googleapis/type/latlng
+- name: google.golang.org/grpc
+  version: 1925e2441e117612f6e937446c35fd95bf4ac285
+  subpackages:
+  - balancer
+  - balancer/base
+  - balancer/roundrobin
+  - binarylog/grpc_binarylog_v1
+  - codes
+  - connectivity
+  - credentials
+  - credentials/internal
+  - credentials/oauth
+  - encoding
+  - encoding/proto
+  - grpclog
+  - internal
+  - internal/backoff
+  - internal/binarylog
+  - internal/channelz
+  - internal/envconfig
+  - internal/grpcrand
+  - internal/grpcsync
+  - internal/syscall
+  - internal/transport
+  - keepalive
+  - metadata
+  - naming
+  - peer
+  - resolver
+  - resolver/dns
+  - resolver/passthrough
+  - stats
+  - status
+  - tap
+- name: gopkg.in/yaml.v2
+  version: 51d6538a90f86fe93ac480b35f37b2be17fef232
+testImports:
+- name: github.com/pkg/profile
+  version: 22592cc4bae3572d59be8852c6980023e4c9dec5
