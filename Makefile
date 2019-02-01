@@ -10,7 +10,7 @@ default: all
 deps:
 	@echo "--> intalling deps"
 	@glide install
-	$(shell ln -sr vendor/* src/)
+	# $(shell ln -sr vendor/* src/)
 	@echo ""
 
 client:
@@ -33,7 +33,7 @@ clean:
 	go clean -i -r docsdocs/...
 	@echo ""
 
-glide:
+install_glide:
 	@command -v glide >/dev/null ; if [ $$? -ne 0 ]; then \
 		echo "--> installing glide"; \
 		curl https://glide.sh/get | sh; \

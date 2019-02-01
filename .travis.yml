@@ -32,7 +32,8 @@ install: |
   go get github.com/haya14busa/goverage
   go get github.com/golang/lint/golint
   cd $GOPATH
-  make glide
+  make install_glide
+  make deps
 
 script:
   - make test
