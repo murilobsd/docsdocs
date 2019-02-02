@@ -33,7 +33,7 @@ Two main safety issues may occur and are being currently worked on:
 - File Cryptography 
 - Node Cryptography 
 
-If you find a vulnerability please send your report and we kindly ask you not to file a public report, our GPG key is ... security@docsdocs.com
+If you find a vulnerability please send your report and we kindly ask you not to file a public report, our GPG key is [076C2D5451A74153](https://murilo.net.br) murilo@lab804.com.br
 
 ## Install
 

@@ -37,7 +37,7 @@ Duas questões de segurança precisam ser imediamente estruturada:
 - Criptografia na comunicação entre os nós
 
 Caso encontre alguma falha de segurança por favor entre em contato imediatamente conosco,
-a nossa chave GPG security@docsdocs.com.br
+a nossa chave GPG [076C2D5451A74153](https://murilo.net.br) murilo@lab804.com.br
 
 ## Instalação
 
