@@ -33,8 +33,8 @@ type Encrypter interface {
 	ExportPublic(io.Writer) error
 	GetPrivate() *rsa.PrivateKey
 	GetPublic() *rsa.PublicKey
-	// ReadPrivate() (*rsa.PrivateKey, error)
-	// ReadPublic() (*rsa.PublicKey, error)
+	// ReadPrivateFile(r io.Reader) (*rsa.PrivateKey, error)
+	// ReadPublicFile(r io.Reader) (*rsa.PublicKey, error)
 }
 
 // DocsCrypto This is struct to manager crypto files
