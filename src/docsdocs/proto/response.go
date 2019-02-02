@@ -9,8 +9,8 @@ import (
 type Status int64
 
 const (
-	// Sucesss ...
-	Sucesss Status = 1 << iota
+	// Sucess ...
+	Sucess Status = 1 << iota
 	// Error ...
 	Error
 )

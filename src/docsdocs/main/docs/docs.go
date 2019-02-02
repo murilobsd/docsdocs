@@ -3,23 +3,31 @@ package main
 import (
 	"docsdocs/log"
 	"docsdocs/proto"
+	"fmt"
 )
 
 func main() {
 	log.Settings("json", "stdout", "debug")
-	logger := log.NewDocsLogger()
-	logger.Info("Starting client")
-	t, err := proto.NewTransport("tcp", "localhost:5000")
+	t, err := proto.NewTransport("tcp", "localhost:3000")
 	if err != nil {
-		logger.Error(err)
+		panic(err)
 	}
-	resp, err := t.RoundTrip(&proto.Request{
-		Header:    proto.Header{},
-		Method:    proto.MethodGet,
-		BodyBytes: []byte("hello =]"),
-	})
-	if err != nil {
-		logger.Error(err)
+	for _, method := range []proto.Method{
+		proto.MethodGet,
+		proto.MethodPost,
+		proto.MethodDelete,
+		42,
+	} {
+		fmt.Println("starting request: ", method)
+		resp, err := t.RoundTrip(&proto.Request{
+			Header:    proto.Header{},
+			Method:    method,
+			BodyBytes: []byte("hello =]"),
+		})
+		if err != nil {
+			fmt.Printf("Erro: %v\n", err)
+		}
+		fmt.Printf("Response: %v\n\n", resp)
 	}
-	logger.Info("Response: %v\n\n", resp)
+
 }

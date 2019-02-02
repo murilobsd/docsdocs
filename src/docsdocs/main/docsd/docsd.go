@@ -1,7 +1,16 @@
 package main
 
-import "docsdocs/server"
+import (
+	"docsdocs/log"
+	"docsdocs/server"
+)
 
 func main() {
-	server.NewServer()
+	log.Settings("json", "stdout", "debug")
+	serv, err := server.NewServer("tcp", "localhost:3000")
+	if err != nil {
+		panic(err)
+	}
+	quit := serv.Run()
+	defer func() { quit <- struct{}{} }()
 }
