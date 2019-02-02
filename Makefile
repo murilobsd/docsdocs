@@ -15,9 +15,14 @@ deps:
 	@cp -R vendor/* src/
 	@echo ""
 
-client:
+install_client:
 	@echo "--> intall client"
 	@go install docsdocs/main/docs
+	@echo ""
+
+install_server:
+	@echo "--> intall server"
+	@go install docsdocs/main/docsd
 	@echo ""
 
 lint:
