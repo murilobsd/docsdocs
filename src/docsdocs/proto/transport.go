@@ -8,10 +8,12 @@ import (
 // Header ...
 type Header struct{}
 
+// Encoder ...
 type Encoder interface {
 	Encode(interface{}) error
 }
 
+// Decoder ...
 type Decoder interface {
 	Decode(interface{}) error
 }

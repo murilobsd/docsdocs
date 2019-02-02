@@ -2,7 +2,6 @@ package proto
 
 import (
 	"bytes"
-	"context"
 	"encoding/gob"
 )
 
@@ -12,22 +11,12 @@ func init() {
 
 // Request ...
 type Request struct {
-	Header     Header
-	Method     Method
-	BodyBytes  []byte
-	RemoteAddr string
-	ctx        context.Context
+	Header    Header
+	Method    Method
+	BodyBytes []byte
 }
 
-// Context returns the request context
-func (r *Request) Context() context.Context {
-	if r.ctx != nil {
-		return r.ctx
-	}
-	return context.Background()
-}
-
-// Serialize
+// Serialize ...
 func (r *Request) Serialize() ([]byte, error) {
 	b := bytes.Buffer{}
 	encoder := gob.NewEncoder(&b)
@@ -35,7 +24,8 @@ func (r *Request) Serialize() ([]byte, error) {
 	return b.Bytes(), err
 }
 
-func Deserialize(reqBytes []byte) (Request, error) {
+// DeserualizeRequest ...
+func DeserualizeRequest(reqBytes []byte) (Request, error) {
 	b := bytes.Buffer{}
 	b.Write(reqBytes)
 	decoder := gob.NewDecoder(&b)
