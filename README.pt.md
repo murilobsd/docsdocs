@@ -4,6 +4,8 @@
 
 [![license](https://img.shields.io/badge/License-BSD-blue.svg?style=for-the-badge)](LICENSE)
 [![Travis](https://img.shields.io/travis/murilobsd/docsdocs/master.svg?style=for-the-badge)](https://travis-ci.org/murilobsd/docsdocs)
+[![Codecov](https://img.shields.io/codecov/c/gh/murilobsd/docsdocs.svg?style=for-the-badge)](https://codecov.io/gh/murilobsd/docsdocs)
+[![Telegram](https://img.shields.io/badge/telegram-chat-blue.svg?style=for-the-badge&logo=telegram)](https://t.me/joinchat/BEU4pxK-Ow8IXiKTQEJZxg)
 
 > A maneira simples e segura para **Contadores** compartilharem documentos com seus clientes.
 
